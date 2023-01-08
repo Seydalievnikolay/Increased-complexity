@@ -3,6 +3,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
+import java.lang.StringBuilder;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,32 +14,40 @@ public class Main {
         task5();
         task6();
         task7();
+        task8();
+        task9();
         }
 
     public static void task1(){
-        int[][] matrix = {
-                {1, 0, 1},
-                {0, 1, 0},
-                {1, 0, 1}};
-        for (int[] row : matrix) {
-            for (int column : row) {
-                System.out.print(column + " ");
+        int[][] arr = new int[3][3];
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0, x = arr[i].length - 1; j < arr[i].length; j++, x--) {
+                if (i == j || i == x) arr[i][j] = 1;
+                else arr[i][j] = 0;
+                System.out.print(arr[i][j] + " ");
             }
-            System.out.println();
+            System.out.print("\n");
         }
+        System.out.println();
     }
 
 
-    //Task2
+    public static void revers (int arr[], int nextIndex){
+        if (arr == null || nextIndex == arr.length){
+            return;
+        }
+        int value = arr[nextIndex];
+        revers(arr,nextIndex+1);
+        arr[arr.length-nextIndex-1] = value;
+
+    }
+
     public static void task2(){
          int [] arr = new int [] {5,4,3,2,1};
-         int [] arr2 = new int [] {1,2,3,4,5};
-         {   System.out.println(Arrays.toString(arr));
-             Arrays.sort(arr2, 0, 4);
-             System.out.println(Arrays.toString(arr2));
-         }
+         revers(arr,0);
+            System.out.println(Arrays.toString(arr));
+        System.out.println();
     }
-
     private static void task3() {
         int [] arr = new int [] {5,4,3,2,1};
         List<Integer> list = Arrays.asList(5,4,3,2,1);
@@ -47,6 +56,7 @@ public class Main {
         System.out.println(list);
 
     }
+
     private static void task4() {
         int arr [] = {-6,2,5,-8,8,10,4,-7,12,1};
         int sum = 2;
@@ -81,12 +91,29 @@ public class Main {
     }
     private static void task6() {
         String fullName = "ivanov ivan ivanovich";
-        char[] chars = fullName.toCharArray();
-        System.out.println(Arrays.toString(chars));
+
 
 
     }
     private static void task7() {
+        String one = "135";
+        String two = "246";
+        String three = (new String(one+two));
+        System.out.println(three);
+
 
     }
-}
+    private static void task8() {
+    }
+    public static String firstLetterToUpperCase(String word) {
+        String i = word.substring(0, 1);
+        String r = i.toUpperCase() + word.substring(1);
+        return r;
+    }
+    public static void task9 () {
+            String fullName = "ivanov ivan ivanovich";
+            char[] splitFullName = fullName.toCharArray();
+            System.out.println(firstLetterToUpperCase(String.valueOf(splitFullName[0])) + " " + firstLetterToUpperCase(String.valueOf(splitFullName[1])) + " " + firstLetterToUpperCase(String.valueOf(splitFullName[2])));
+            System.out.println();
+        }
+    }
