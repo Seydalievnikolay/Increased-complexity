@@ -18,17 +18,22 @@ public class Main {
         task9();
         }
 
-    public static void task1(){
+    public static void task1() {
         int[][] arr = new int[3][3];
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0, x = arr[i].length - 1; j < arr[i].length; j++, x--) {
                 if (i == j || i == x) arr[i][j] = 1;
-                else arr[i][j] = 0;
-                System.out.print(arr[i][j] + " ");
+                else
+                arr[i][j] = 0;
             }
-            System.out.print("\n");
         }
-        System.out.println();
+
+        for (int[] row : arr) {
+            for (int column : row) {
+                System.out.print(column + " ");
+            }
+            System.out.println();
+        }
     }
 
 
@@ -44,13 +49,15 @@ public class Main {
 
     public static void task2(){
          int [] arr = new int [] {5,4,3,2,1};
+         int [] arr2 = new int [] {5,4,3,2,1};
+        System.out.println(Arrays.toString(arr2));
          revers(arr,0);
             System.out.println(Arrays.toString(arr));
         System.out.println();
     }
     private static void task3() {
-        int [] arr = new int [] {5,4,3,2,1};
-        List<Integer> list = Arrays.asList(5,4,3,2,1);
+        int [] arr = new int [] {5,8,2,3,9};
+        List<Integer> list = Arrays.asList(5,8,2,3,9);
         System.out.println(list);
         Collections.reverse(list);
         System.out.println(list);
@@ -101,9 +108,10 @@ public class Main {
         String three = (new String(one+two));
         System.out.println(three);
 
-
+        System.out.println();
     }
     private static void task8() {
+        System.out.println();
     }
     public static String firstLetterToUpperCase(String word) {
         String i = word.substring(0, 1);
@@ -112,7 +120,7 @@ public class Main {
     }
     public static void task9 () {
             String fullName = "ivanov ivan ivanovich";
-            char[] splitFullName = fullName.toCharArray();
+            String[] splitFullName = fullName.split(" ");
             System.out.println(firstLetterToUpperCase(String.valueOf(splitFullName[0])) + " " + firstLetterToUpperCase(String.valueOf(splitFullName[1])) + " " + firstLetterToUpperCase(String.valueOf(splitFullName[2])));
             System.out.println();
         }
